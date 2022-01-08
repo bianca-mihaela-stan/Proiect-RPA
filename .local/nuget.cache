@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VfY5RfNfW8ZHrF4OJNhVPAJ+kxsFvMSLk0w09n+scwMrrq3ZrYxNeOto0NH+4hcvSjKJe6g4J3gw+l2JKrMluA==",
+  "dgSpecHash": "S2ZxXi63UQJaNKVZqoUKXmdw5AYXXQoOUYvCG1O06cneFM8MunlwKuB1x2NO53mhrMufwTq2gkKI507H71d/yw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\x\\Documents\\UiPath\\procesare pdf nativ\\.local\\",
+  "projectFilePath": "C:\\Users\\x\\Documents\\GitHub\\Proiect-RPA\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\x\\.nuget\\packages\\bitmiracle.docotic.pdf\\7.5.11645\\bitmiracle.docotic.pdf.7.5.11645.nupkg.sha512",
     "C:\\Users\\x\\.nuget\\packages\\closedxml\\0.87.1\\closedxml.0.87.1.nupkg.sha512",

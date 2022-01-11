@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="825.6,1876.8" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="828,1876.8" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="35">
       <x:String>System.Activities</x:String>
@@ -95,7 +95,7 @@
           <ActivityFunc.Argument>
             <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
           </ActivityFunc.Argument>
-          <ui:MicrosoftOCR FilterRegion="{x:Null}" Language="{x:Null}" Output="{x:Null}" Profile="{x:Null}" Scale="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Microsoft OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="MicrosoftOCR_3" Image="[Image]" />
+          <ui:MicrosoftOCR FilterRegion="{x:Null}" Language="{x:Null}" Output="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Microsoft OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="MicrosoftOCR_3" Image="[Image]" Profile="Scan" Scale="3" />
         </ActivityFunc>
       </ui:ReadPDFWithOCR.OCREngine>
       <sap:WorkflowViewStateService.ViewState>
@@ -105,8 +105,8 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ReadPDFWithOCR>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Output" sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[strPdf]" />
-    <Assign sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="OCR Output" sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="[strPdf]" />
+    <Assign DisplayName="Reading School Year" sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[schoolYearString]</OutArgument>
       </Assign.To>
@@ -114,7 +114,7 @@
         <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(strPdf,"Anul de studiu ([1-4]\s)").Value.Trim]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+    <Assign DisplayName="Extracting the number only" sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="Assign_6">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[schoolYearString]</OutArgument>
       </Assign.To>
@@ -122,7 +122,7 @@
         <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(schoolYearString.ToString,"Anul de studiu ","").ToString.Trim]</InArgument>
       </Assign.Value>
     </Assign>
-    <Assign sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+    <Assign DisplayName="string to int" sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[schoolYear]</OutArgument>
       </Assign.To>
@@ -130,13 +130,13 @@
         <InArgument x:TypeArguments="x:Int32">[cint(schoolYearString)]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[schoolYear]" />
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Showing school year" sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="MessageBox_6" Text="[schoolYear]" />
     <Assign sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="Assign_3">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[cnp]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(strPdf,"CNP.([0-9]\s){13}").Value.Trim]</InArgument>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(strPdf,"CNP ([0-9]\s){13}").Value.Trim]</InArgument>
       </Assign.Value>
     </Assign>
     <Assign sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="Assign_4">
@@ -144,7 +144,7 @@
         <OutArgument x:TypeArguments="x:String">[cnp]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(strPdf.ToString,"CNP. ","").ToString.Trim]</InArgument>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(cnp.ToString,"CNP","").ToString.Trim]</InArgument>
       </Assign.Value>
     </Assign>
     <Assign sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
@@ -152,11 +152,11 @@
         <OutArgument x:TypeArguments="x:String">[cnp]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Match(strPdf,"CNP. ([0-9]\s){13}").Value.Trim]</InArgument>
+        <InArgument x:TypeArguments="x:String">[System.Text.RegularExpressions.Regex.Replace(cnp," ", "").ToString.Trim]</InArgument>
       </Assign.Value>
     </Assign>
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="794.4,60" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[cnp]" />
-    <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="794.4,295.2" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Do you want to scan another file?" OptionsString="Yes;No" Title="Repeat">
+    <ui:InputDialog Options="{x:Null}" DisplayName="Asking the user if he wants to repeat the process" sap:VirtualizedContainerService.HintSize="794.4,295.2" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="Do you want to scan another file?" OptionsString="Yes;No" Title="Repeat">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[answer]</OutArgument>
       </ui:InputDialog.Result>

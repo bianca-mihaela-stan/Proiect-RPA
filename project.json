@@ -5,6 +5,7 @@
   "dependencies": {
     "UiPath.Excel.Activities": "[2.11.4]",
     "UiPath.Mail.Activities": "[1.12.2]",
+    "UiPath.MicrosoftOffice365.Activities": "[1.12.1-preview]",
     "UiPath.PDF.Activities": "[3.4.1]",
     "UiPath.System.Activities": "[21.10.2]",
     "UiPath.UIAutomation.Activities": "[21.10.3]"
@@ -16,6 +17,7 @@
   "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
+    "netFrameworkLazyLoading": false,
     "isPausable": true,
     "isAttended": false,
     "requiresUserInteraction": true,

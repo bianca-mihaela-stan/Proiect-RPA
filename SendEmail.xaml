@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="SendEmail" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="830,1641.33333333333" sap2010:WorkflowViewState.IdRef="SendEmail_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="SendEmail" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="934.666666666667,1877.33333333333" sap2010:WorkflowViewState.IdRef="SendEmail_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:usag="clr-namespace:UiPath.Shared.Authentication.Google;assembly=UiPath.Mail" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -40,6 +40,7 @@
       <x:String>System.ComponentModel</x:String>
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Shared.Authentication.Google</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -83,7 +84,7 @@
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="840,1576.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="SendEmail" sap:VirtualizedContainerService.HintSize="944.666666666667,1812.66666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Default="configurare.xlsx" Name="configurationFile" />
       <Variable x:TypeArguments="sd:DataTable" Name="configurationData" />
@@ -99,41 +100,54 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Comment sap:VirtualizedContainerService.HintSize="798,74.6666666666667" sap2010:WorkflowViewState.IdRef="Comment_1" Text="folosim un fisier de configurare, prima data verificam daca acesta exista" />
-    <ui:PathExists DisplayName="Path Exists" Exists="[fileExists]" sap:VirtualizedContainerService.HintSize="798,90.6666666666667" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[configurationFile]" PathType="File" />
-    <If Condition="[fileExists]" sap:VirtualizedContainerService.HintSize="798,1239.33333333333" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:Comment sap:VirtualizedContainerService.HintSize="902.666666666667,74.6666666666667" sap2010:WorkflowViewState.IdRef="Comment_1" Text="folosim un fisier de configurare, prima data verificam daca acesta exista" />
+    <ui:PathExists DisplayName="Path Exists" Exists="[fileExists]" sap:VirtualizedContainerService.HintSize="902.666666666667,90.6666666666667" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[configurationFile]" PathType="File" />
+    <If Condition="[fileExists]" sap:VirtualizedContainerService.HintSize="902.666666666667,1475.33333333333" sap2010:WorkflowViewState.IdRef="If_1">
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="376,1075.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <Sequence sap:VirtualizedContainerService.HintSize="480.666666666667,1311.33333333333" sap2010:WorkflowViewState.IdRef="Sequence_3">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:Comment sap:VirtualizedContainerService.HintSize="334,94" sap2010:WorkflowViewState.IdRef="Comment_2" Text="citim datele din fisierul de config, de unde preluam username si parola cu care ne logam sa trimitem mail-ul" />
-          <ui:ReadRange AddHeaders="True" DataTable="[username]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="B1:B1" SheetName="Sheet1" WorkbookPath="[configurationFile]" />
-          <ui:OutputDataTable DataTable="[username]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="334,80.6666666666667" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[usernameString]" />
-          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="334,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[configurationDataString]" />
-          <ui:ReadRange AddHeaders="True" DataTable="[password]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_2" Range="B2:B2" SheetName="Sheet1" WorkbookPath="[configurationFile]" />
-          <ui:OutputDataTable DataTable="[password]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="334,80.6666666666667" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[passwordString]" />
-          <ui:Comment sap:VirtualizedContainerService.HintSize="334,55.3333333333333" sap2010:WorkflowViewState.IdRef="Comment_3" Text="trimitem excel ul final" />
-          <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Send SMTP Mail Message" Email="[usernameString]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,156.666666666667" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Password="[passwordString]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Date extrase din fisele de inscriere an universitar 2021-2022" To="stanbianca611@gmail.com">
-            <ui:SendMail.Body>
-              <InArgument x:TypeArguments="x:String">
-                <Literal x:TypeArguments="x:String" Value="" />
-              </InArgument>
-            </ui:SendMail.Body>
-            <ui:SendMail.Files>
-              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
-                <InArgument x:TypeArguments="x:String">Results.xlsx</InArgument>
-              </scg:List>
-            </ui:SendMail.Files>
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                <x:Boolean x:Key="IsPinned">False</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-          </ui:SendMail>
+          <ui:Comment sap:VirtualizedContainerService.HintSize="438.666666666667,94" sap2010:WorkflowViewState.IdRef="Comment_2" Text="citim datele din fisierul de config, de unde preluam username si parola cu care ne logam sa trimitem mail-ul" />
+          <ui:ReadRange AddHeaders="True" DataTable="[username]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="438.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_1" Range="B1:B1" SheetName="Sheet1" WorkbookPath="[configurationFile]" />
+          <ui:OutputDataTable DataTable="[username]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="438.666666666667,80.6666666666667" sap2010:WorkflowViewState.IdRef="OutputDataTable_1" Text="[usernameString]" />
+          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="438.666666666667,62.6666666666667" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[configurationDataString]" />
+          <ui:ReadRange AddHeaders="True" DataTable="[password]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="438.666666666667,86.6666666666667" sap2010:WorkflowViewState.IdRef="ReadRange_2" Range="B2:B2" SheetName="Sheet1" WorkbookPath="[configurationFile]" />
+          <ui:OutputDataTable DataTable="[password]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="438.666666666667,80.6666666666667" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[passwordString]" />
+          <ui:Comment sap:VirtualizedContainerService.HintSize="438.666666666667,55.3333333333333" sap2010:WorkflowViewState.IdRef="Comment_3" Text="trimitem excel ul final" />
+          <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="438.666666666667,392.666666666667" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <TryCatch.Try>
+              <ui:SendMail Bcc="{x:Null}" Cc="{x:Null}" From="{x:Null}" MailMessage="{x:Null}" Name="{x:Null}" ReplyTo="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Send SMTP Mail Message" Email="[usernameString]" EnableSSL="True" sap:VirtualizedContainerService.HintSize="334,156.666666666667" sap2010:WorkflowViewState.IdRef="SendMail_1" IsBodyHtml="False" Password="[passwordString]" Port="465" SecureConnection="Auto" Server="smtp.gmail.com" Subject="Date extrase din fisele de inscriere an universitar 2021-2022" To="stanbianca611@gmail.com">
+                <ui:SendMail.Body>
+                  <InArgument x:TypeArguments="x:String">
+                    <Literal x:TypeArguments="x:String" Value="" />
+                  </InArgument>
+                </ui:SendMail.Body>
+                <ui:SendMail.Files>
+                  <scg:List x:TypeArguments="InArgument(x:String)" Capacity="4">
+                    <InArgument x:TypeArguments="x:String">Results.xlsx</InArgument>
+                  </scg:List>
+                </ui:SendMail.Files>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:SendMail>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="usag:AuthenticationException" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                <ActivityAction x:TypeArguments="usag:AuthenticationException">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="usag:AuthenticationException" Name="exception" />
+                  </ActivityAction.Argument>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+          </TryCatch>
         </Sequence>
       </If.Then>
       <If.Else>

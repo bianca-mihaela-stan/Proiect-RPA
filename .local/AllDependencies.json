@@ -151,6 +151,19 @@
           "lib/net46/MailKit.dll": {}
         }
       },
+      "Microsoft.Activities.Extensions/2.0.6.9": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Activities"
+        ],
+        "compile": {
+          "lib/Net45/_._": {}
+        },
+        "runtime": {
+          "lib/Net45/Microsoft.Activities.Extensions.Design.dll": {},
+          "lib/Net45/Microsoft.Activities.Extensions.dll": {}
+        }
+      },
       "Microsoft.AspNet.SignalR.Client/2.4.0": {
         "type": "package",
         "dependencies": {
@@ -2502,6 +2515,19 @@
         },
         "runtime": {
           "lib/net46/MailKit.dll": {}
+        }
+      },
+      "Microsoft.Activities.Extensions/2.0.6.9": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Activities"
+        ],
+        "compile": {
+          "lib/Net45/_._": {}
+        },
+        "runtime": {
+          "lib/Net45/Microsoft.Activities.Extensions.Design.dll": {},
+          "lib/Net45/Microsoft.Activities.Extensions.dll": {}
         }
       },
       "Microsoft.AspNet.SignalR.Client/2.4.0": {
@@ -4930,6 +4956,27 @@
         "lib/netstandard2.0/MailKit.xml",
         "mailkit.2.10.0.nupkg.sha512",
         "mailkit.nuspec"
+      ]
+    },
+    "Microsoft.Activities.Extensions/2.0.6.9": {
+      "sha512": "yGwK3gYUzzGIzgybBtXsCbcWIj+Dv+gadnaWkmG0WpBs22AV8ZS7deFhAb2pznDoGz0Pj4M7Tt9RwK9VrNzf4A==",
+      "type": "package",
+      "path": "microsoft.activities.extensions/2.0.6.9",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        "help/Microsoft.Activities.Extensions Documentation.chm",
+        "lib/Net40/Microsoft.Activities.Extensions.Design.dll",
+        "lib/Net40/Microsoft.Activities.Extensions.dll",
+        "lib/Net401/Microsoft.Activities.Extensions.Design.dll",
+        "lib/Net401/Microsoft.Activities.Extensions.dll",
+        "lib/Net45/Microsoft.Activities.Extensions.Design.dll",
+        "lib/Net45/Microsoft.Activities.Extensions.dll",
+        "microsoft.activities.extensions.2.0.6.9.nupkg.sha512",
+        "microsoft.activities.extensions.nuspec",
+        "tools/Microsoft.Activities.Extensions.NuGet.dll",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
       ]
     },
     "Microsoft.AspNet.SignalR.Client/2.4.0": {
@@ -8468,6 +8515,7 @@
   "projectFileDependencyGroups": {
     "": [],
     ".NETFramework,Version=v4.6.1": [
+      "Microsoft.Activities.Extensions >= 2.0.6.9 <= 2.0.6.9",
       "UiPath.Excel.Activities >= 2.11.4 <= 2.11.4",
       "UiPath.Mail.Activities >= 1.12.2 <= 1.12.2",
       "UiPath.MicrosoftOffice365.Activities >= 1.12.1-preview <= 1.12.1-preview",
@@ -8477,19 +8525,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\stanb\\.nuget\\packages\\": {}
+    "C:\\Users\\x\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "procesare pdf nativ",
       "projectName": "procesare pdf nativ",
-      "projectPath": "F:\\GitHub\\Proiect-RPA\\.local",
-      "packagesPath": "C:\\Users\\stanb\\.nuget\\packages\\",
-      "outputPath": "F:\\GitHub\\Proiect-RPA\\.local"
+      "projectPath": "C:\\Users\\x\\Documents\\GitHub\\Proiect-RPA\\.local",
+      "packagesPath": "C:\\Users\\x\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\x\\Documents\\GitHub\\Proiect-RPA\\.local"
     },
     "frameworks": {
       "net461": {
         "dependencies": {
+          "Microsoft.Activities.Extensions": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[2.0.6.9, 2.0.6.9]"
+          },
           "UiPath.Excel.Activities": {
             "include": "Runtime",
             "target": "Package",
@@ -8521,7 +8574,7 @@
             "version": "[21.10.3, 21.10.3]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\stanb\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\x\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {

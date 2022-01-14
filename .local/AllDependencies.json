@@ -8525,15 +8525,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\x\\.nuget\\packages\\": {}
+    "C:\\Users\\mihai\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "procesare pdf nativ",
       "projectName": "procesare pdf nativ",
-      "projectPath": "C:\\Users\\x\\Documents\\GitHub\\Proiect-RPA\\.local",
-      "packagesPath": "C:\\Users\\x\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\x\\Documents\\GitHub\\Proiect-RPA\\.local"
+      "projectPath": "C:\\Users\\mihai\\Desktop\\Serios\\Projects\\UiPath\\Proiect-RPA\\.local",
+      "packagesPath": "C:\\Users\\mihai\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mihai\\Desktop\\Serios\\Projects\\UiPath\\Proiect-RPA\\.local"
     },
     "frameworks": {
       "net461": {
@@ -8574,7 +8574,7 @@
             "version": "[21.10.3, 21.10.3]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\x\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\mihai\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
